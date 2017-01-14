@@ -45,7 +45,11 @@ const alertMiddleware = (err, req, res, next) => {
   else if (err.name==="BizzError") {
     console.log("A BizzError occurred. " +err);
   }
-  else {console.log("Another error occurred. "+err)}
+  else {
+    console.log("Another error occurred. "+err);
+    
+  }
+  next();
 };
 
 app.use(morgan('common', {stream: logger.stream}));
